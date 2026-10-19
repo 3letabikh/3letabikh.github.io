@@ -51,7 +51,7 @@ const revealObs = new IntersectionObserver(entries => {
 document.querySelectorAll(".reveal").forEach(el => revealObs.observe(el));
 
 /* ---- email: opens Gmail in a new tab (works without a mail app) and copies the address ---- */
-const EMAIL = "3lytabikh@gmail.com";
+const EMAIL = "alitabikh31@gmail.com";
 document.querySelectorAll(".email-link").forEach(a => a.addEventListener("click", () => {
   try { navigator.clipboard.writeText(EMAIL); } catch (e) {}
   const label = a.querySelector(".email-label");
