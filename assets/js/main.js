@@ -1,7 +1,7 @@
 /* Portfolio of Ali Tabikh - menu, theme, active link, reveal on scroll. No libraries. */
 
 /* ---- settings: paste your LinkedIn link here when it exists ---- */
-const LINKEDIN_URL = "";
+const LINKEDIN_URL = "https://www.linkedin.com/in/ali-tabikh";
 
 if (LINKEDIN_URL) {
   document.querySelectorAll(".linkedin").forEach(el => (el.hidden = false));
@@ -49,3 +49,15 @@ const revealObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.12 });
 document.querySelectorAll(".reveal").forEach(el => revealObs.observe(el));
+
+/* ---- email: opens Gmail in a new tab (works without a mail app) and copies the address ---- */
+const EMAIL = "3lytabikh@gmail.com";
+document.querySelectorAll(".email-link").forEach(a => a.addEventListener("click", () => {
+  try { navigator.clipboard.writeText(EMAIL); } catch (e) {}
+  const label = a.querySelector(".email-label");
+  if (label) {
+    const old = label.textContent;
+    label.textContent = "Address copied \u2713";
+    setTimeout(() => (label.textContent = old), 2500);
+  }
+}));
