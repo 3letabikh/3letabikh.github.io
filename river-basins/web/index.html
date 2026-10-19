@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>River basins of Lebanon</title>
+  <meta name="description" content="Interactive atlas of Lebanon's 16 river basins: delineation, stream network and morphometry from a 30 m DEM (ArcGIS Pro, arcpy).">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>River basins of Lebanon</h1>
+      <p class="sub">16 basins delineated from a 30 m DEM · stream network, Strahler order and morphometry</p>
+    </div>
+    <nav class="links">
+      <a href="../report/P3_River_Basins_Atlas.pdf" target="_blank" rel="noopener">Atlas PDF</a>
+    </nav>
+  </header>
+
+  <main class="grid">
+    <section class="map-wrap">
+      <div id="map" aria-label="Map of the river basins of Lebanon"></div>
+      <div class="map-tools">
+        <label for="metric">Colour basins by</label>
+        <select id="metric">
+          <option value="">None</option>
+          <option value="area_km2">Area (km²)</option>
+          <option value="dd_km_km2">Drainage density (km/km²)</option>
+          <option value="relief_m">Relief (m)</option>
+          <option value="hi">Hypsometric integral</option>
+          <option value="elongation">Elongation ratio</option>
+        </select>
+        <div id="ramp" class="ramp" hidden></div>
+      </div>
+    </section>
+
+    <aside class="panel" id="panel">
+      <div id="intro">
+        <h2>Pick a basin</h2>
+        <p>Click a basin on the map or a row in the table to see its numbers, its hypsometric curve, its stream orders and its atlas sheet.</p>
+        <div class="kpis" id="kpis"></div>
+      </div>
+      <div id="detail" hidden>
+        <p class="eyebrow" id="d-sheet"></p>
+        <h2 id="d-name"></h2>
+        <dl class="stats" id="d-stats"></dl>
+        <h3>Hypsometric curve</h3>
+        <p class="note">Share of the basin area above each relative height. A high curve (HI &gt; 0.5) is a young, deeply cut basin; a low one is mature and worn down.</p>
+        <div class="chart"><canvas id="c-hypso"></canvas></div>
+        <h3>Stream length by Strahler order</h3>
+        <div class="chart"><canvas id="c-orders"></canvas></div>
+        <a class="sheet" id="d-sheet-link" target="_blank" rel="noopener">
+          <img id="d-img" alt="">
+          <span>Open the atlas sheet</span>
+        </a>
+      </div>
+    </aside>
+  </main>
+
+  <section class="table-wrap">
+    <h2>Compare the 16 basins</h2>
+    <p class="note">Click a column to sort, a row to show the basin.</p>
+    <div class="scroll">
+      <table id="table">
+        <thead><tr>
+          <th data-k="sheet" data-t="n">Sheet</th>
+          <th data-k="name" data-t="s">Basin</th>
+          <th data-k="area_km2" data-t="n">Area<br><small>km²</small></th>
+          <th data-k="main_len_km" data-t="n">Main river<br><small>km</small></th>
+          <th data-k="dd_km_km2" data-t="n">Drainage density<br><small>km/km²</small></th>
+          <th data-k="relief_m" data-t="n">Relief<br><small>m</small></th>
+          <th data-k="elev_mean_m" data-t="n">Mean elevation<br><small>m</small></th>
+          <th data-k="hi" data-t="n">HI</th>
+          <th data-k="elongation" data-t="n">Elongation</th>
+          <th data-k="max_order" data-t="n">Max order</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p><b>Method.</b> ALOS 30 m DEM projected to WGS 1984 UTM 36N (EPSG:32636); sea cells removed, sinks filled, D8 flow direction and accumulation; one pour point per river mouth (El Assi and El Hasbani past the border); streams from 0.9 km² of drainage area, Strahler order; morphometry with arcpy and NumPy. Lebanese part of each basin, El Kabir kept whole. Streams on this map: order 3 and above.</p>
+    <p><b>Data.</b> ALOS World 3D 30 m (JAXA) · boundaries: OCHA · towns: WorldPop 2025 (most populated cadastres) · basemap: Esri.</p>
+    <p>Ali Tabikh · 2026</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
