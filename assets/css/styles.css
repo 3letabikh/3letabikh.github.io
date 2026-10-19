@@ -193,3 +193,8 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: poi
   .viewer__actions { margin-left: auto; }
   .viewer__actions .button--ghost { display: none; }
 }
+
+/* ---------- geospatial background (grid + pins), drawn by assets/js/geo-bg.js ---------- */
+#geo-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+main, .footer { position: relative; z-index: 1; }
+.services { background: color-mix(in srgb, var(--surface) 70%, transparent); }
