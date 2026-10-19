@@ -10,14 +10,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=3">
   <script>
     /* apply the saved theme before the page paints */
     try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
 </head>
 <body>
-  <canvas id="geo-bg" data-style="grid" aria-hidden="true"></canvas>
+  <canvas id="geo-bg" data-style="grid" aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none"></canvas>
   <!-- ============ HEADER ============ -->
   <header class="header" id="header">
     <nav class="nav container">
@@ -27,6 +27,7 @@
           <li><a href="#home" class="nav__link active">Home</a></li>
           <li><a href="#about" class="nav__link">About</a></li>
           <li><a href="#projects" class="nav__link">Projects</a></li>
+          <li><a href="view/cv.html" class="nav__link">CV</a></li>
           <li><a href="#contact" class="nav__link nav__link--button">Contact</a></li>
         </ul>
         <button class="nav__close" id="nav-close" aria-label="Close menu"><i class="ri-close-line"></i></button>
@@ -53,6 +54,7 @@
           <div class="home__buttons">
             <a href="#projects" class="button">See my projects <i class="ri-arrow-down-line"></i></a>
             <a href="#contact" class="button button--ghost">Contact me</a>
+            <a href="view/cv.html" class="button button--ghost">My CV <i class="ri-file-user-line"></i></a>
           </div>
         </div>
 
@@ -198,7 +200,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/geo-bg.js"></script>
+  <script src="assets/js/main.js?v=3"></script>
+  <script src="assets/js/geo-bg.js?v=3"></script>
 </body>
 </html>

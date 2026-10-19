@@ -4,6 +4,8 @@
 (function () {
   const cv = document.getElementById("geo-bg");
   if (!cv) return;
+  // keep it behind the page even if an old cached stylesheet is loaded
+  Object.assign(cv.style, { position: "fixed", inset: "0", zIndex: "0", pointerEvents: "none" });
   const ctx = cv.getContext("2d");
   let W = 0, H = 0, DPR = 1;
 
