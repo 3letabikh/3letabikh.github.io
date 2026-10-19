@@ -175,3 +175,21 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: poi
   .project:nth-of-type(even) .project__image { order: 2; }
 }
 
+
+/* ---------- document viewer (view/*.html): pages as images, works on every phone ---------- */
+.viewer__bar { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--line); }
+.viewer__bar-inner { display: flex; align-items: center; gap: 1rem; min-height: 4rem; padding-block: .6rem; }
+.viewer__back { display: inline-flex; align-items: center; gap: .3rem; font-weight: 600; color: var(--ink); white-space: nowrap; }
+.viewer__title { flex: 1; min-width: 0; display: grid; }
+.viewer__title span { font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); font-weight: 600; }
+.viewer__title b { color: var(--ink); font-family: var(--head-font); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.viewer__actions { display: flex; gap: .5rem; flex-shrink: 0; }
+.viewer { padding-block: 1.5rem 3rem; display: grid; gap: 1.5rem; max-width: 900px; }
+.viewer__page img { width: 100%; background: #FFFFFF; border: 1px solid var(--line); box-shadow: var(--shadow); }
+.viewer__page figcaption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: .4rem; }
+@media (max-width: 600px) {
+  .viewer__bar-inner { flex-wrap: wrap; }
+  .viewer__title { order: 3; flex-basis: 100%; }
+  .viewer__actions { margin-left: auto; }
+  .viewer__actions .button--ghost { display: none; }
+}
