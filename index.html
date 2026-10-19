@@ -4,54 +4,199 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ali Tabikh · GIS & Remote Sensing</title>
-  <meta name="description" content="GIS and remote sensing portfolio of Ali Tabikh: interactive maps, atlases and analysis projects made with ArcGIS Pro, Python and Google Earth Engine.">
-  <link rel="stylesheet" href="site.css">
+  <meta name="description" content="GIS and remote sensing portfolio of Ali Tabikh: drought monitoring, health access and river basin projects made with ArcGIS Pro, Python and Google Earth Engine.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    /* apply the saved theme before the page paints */
+    try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
 </head>
 <body>
-  <header class="hero">
-    <h1>Ali Tabikh</h1>
-    <p class="role">GIS &amp; Remote Sensing · Baalbek, Lebanon · open to remote work</p>
-    <p class="intro">I turn raw spatial data into clear maps, numbers and dashboards. Tools: ArcGIS Pro, Python (arcpy), Google Earth Engine.</p>
-    <nav class="contact">
-      <a href="mailto:3lytabikh@gmail.com">Email</a>
-      <a href="https://github.com/3letabikh">GitHub</a>
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#home" class="nav__logo"><span class="nav__logo-circle">A</span><span>Ali Tabikh</span></a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="#home" class="nav__link active">Home</a></li>
+          <li><a href="#about" class="nav__link">About</a></li>
+          <li><a href="#projects" class="nav__link">Projects</a></li>
+          <li><a href="#contact" class="nav__link nav__link--button">Contact</a></li>
+        </ul>
+        <button class="nav__close" id="nav-close" aria-label="Close menu"><i class="ri-close-line"></i></button>
+      </div>
+      <div class="nav__actions">
+        <button class="nav__theme" id="theme-button" aria-label="Switch dark / light theme"><i class="ri-moon-line"></i></button>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Open menu"><i class="ri-menu-4-line"></i></button>
+      </div>
     </nav>
   </header>
 
   <main>
-    <h2>Projects</h2>
+    <!-- ============ HOME ============ -->
+    <section class="home section" id="home">
+      <div class="home__container container">
+        <div class="home__data reveal">
+          <p class="home__hello">Hi, I'm</p>
+          <h1 class="home__name">Ali Tabikh</h1>
+          <p class="home__role">
+            <span class="highlight">GIS &amp; Remote Sensing</span> analyst who turns raw spatial data into
+            clear maps, numbers and dashboards.
+          </p>
+          <p class="home__where"><i class="ri-map-pin-line"></i> Baalbek, Lebanon · open to remote internships and junior roles</p>
+          <div class="home__buttons">
+            <a href="#projects" class="button">See my projects <i class="ri-arrow-down-line"></i></a>
+            <a href="#contact" class="button button--ghost">Contact me</a>
+          </div>
+        </div>
 
-    <article class="card">
-      <a class="thumb" href="river-basins/web/"><img src="river-basins/maps/web/P3_A12_El_Litani.png" alt="Atlas sheet of the Litani basin" loading="lazy"></a>
-      <div class="body">
-        <p class="tag">Hydrology · automation · web dashboard</p>
-        <h3>River basins of Lebanon</h3>
-        <p>16 river basins delineated from a 30 m DEM, with stream network, Strahler order and morphometry. One Python script builds all 16 atlas sheets from a single layout; the dashboard lets you compare the basins.</p>
-        <p class="tools">ArcGIS Pro · arcpy · NumPy · Leaflet · Chart.js</p>
-        <div class="btns">
-          <a class="btn main" href="river-basins/web/">Open the dashboard</a>
-          <a class="btn" href="river-basins/report/P3_River_Basins_Atlas.pdf" target="_blank" rel="noopener">Atlas PDF</a>
+        <div class="home__image reveal">
+          <div class="home__frame">
+            <img src="assets/img/profile.jpg" alt="Portrait of Ali Tabikh" class="home__photo"
+                 onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'home__photo home__photo--empty',textContent:'AT'}))">
+          </div>
+          <span class="home__square"></span>
+          <ul class="home__social">
+            <li><a href="https://github.com/3letabikh" target="_blank" rel="noopener" aria-label="GitHub"><i class="ri-github-line"></i></a></li>
+            <li class="linkedin" hidden><a class="linkedin-link" href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ri-linkedin-line"></i></a></li>
+            <li><a href="mailto:3lytabikh@gmail.com" aria-label="Email"><i class="ri-mail-line"></i></a></li>
+          </ul>
         </div>
       </div>
-    </article>
+    </section>
 
-    <article class="card soon">
-      <div class="body">
-        <p class="tag">Coming soon</p>
-        <h3>Drought monitoring – Upper Litani basin</h3>
-        <p>25 years of satellite drought indices (VCI, VHI) in Google Earth Engine, hot spot analysis and reservoir change.</p>
+    <!-- ============ ABOUT ============ -->
+    <section class="about section" id="about">
+      <div class="container about__container">
+        <div class="reveal">
+          <h2 class="section__title">About me</h2>
+          <p class="about__text">
+            I'm a Physical Geography master's student at the Lebanese University. I have been working with
+            ArcGIS for more than two years, self-taught, and I build complete projects: from finding and
+            cleaning open data, through analysis in ArcGIS Pro, Google Earth Engine and Python, to
+            print-ready maps, short reports and web dashboards.
+          </p>
+          <p class="about__text">
+            I like questions with a real use: where drought hits hardest, who lives too far from a hospital,
+            how a river basin is shaped. I learn fast and I check my numbers.
+          </p>
+        </div>
+        <ul class="about__stats reveal">
+          <li><b>2+</b><span>years of hands-on ArcGIS</span></li>
+          <li><b>3</b><span>complete GIS projects</span></li>
+          <li><b>25</b><span>years of satellite data analysed</span></li>
+          <li><b>4</b><span>Esri &amp; data courses</span></li>
+        </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="card soon">
-      <div class="body">
-        <p class="tag">Coming soon</p>
-        <h3>Access to health care – Baalbek-Hermel</h3>
-        <p>Travel time to the nearest hospital and primary health centre, and who lives too far away.</p>
+    <!-- ============ SKILLS ============ -->
+    <section class="services section">
+      <div class="container">
+        <h2 class="section__title reveal">What I can do</h2>
+        <div class="services__grid">
+          <article class="service reveal">
+            <i class="ri-map-2-line"></i>
+            <h3>Maps &amp; cartography</h3>
+            <p>Clear, print-ready map series and atlases in ArcGIS Pro, with one consistent layout.</p>
+          </article>
+          <article class="service reveal">
+            <i class="ri-earth-line"></i>
+            <h3>Remote sensing</h3>
+            <p>Satellite time series in Google Earth Engine: vegetation and drought indices, water extent.</p>
+          </article>
+          <article class="service reveal">
+            <i class="ri-bar-chart-box-line"></i>
+            <h3>Spatial analysis</h3>
+            <p>Hot spot analysis, travel time, hydrology and zonal statistics, with the numbers checked.</p>
+          </article>
+          <article class="service reveal">
+            <i class="ri-code-s-slash-line"></i>
+            <h3>Automation</h3>
+            <p>Python (arcpy) scripts that repeat the work: one template, every map in a single run.</p>
+          </article>
+        </div>
       </div>
-    </article>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <h2 class="section__title reveal">Projects</h2>
+
+        <article class="project reveal">
+          <a class="project__image" href="river-basins/web/"><img src="assets/img/p3_basins.jpg" alt="Atlas sheet of the Litani basin" loading="lazy"></a>
+          <div class="project__data">
+            <p class="project__tag">Hydrology · automation · web dashboard</p>
+            <h3 class="project__title">River basins of Lebanon</h3>
+            <p>All 16 river basins delineated from a 30 m DEM, with stream network, Strahler order and
+              morphometry. One Python script builds the 16 atlas sheets from a single layout; an interactive
+              dashboard compares the basins.</p>
+            <p class="project__tools">ArcGIS Pro · arcpy · NumPy · Leaflet · Chart.js</p>
+            <div class="project__buttons">
+              <a class="button button--small" href="river-basins/web/">Open the dashboard <i class="ri-arrow-right-up-line"></i></a>
+              <a class="button button--small button--ghost" href="river-basins/report/P3_River_Basins_Atlas.pdf" target="_blank" rel="noopener">Atlas PDF</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <a class="project__image" href="health-access/P2_brief.pdf" target="_blank" rel="noopener"><img src="assets/img/p2_health.jpg" alt="Map of travel time to the nearest hospital in Baalbek-Hermel" loading="lazy"></a>
+          <div class="project__data">
+            <p class="project__tag">Accessibility · population · decision support</p>
+            <h3 class="project__title">Access to health care – Baalbek-Hermel</h3>
+            <p>Car travel time to the nearest hospital and primary health centre. 11,100 people live more
+              than 30 minutes from a hospital, 84 % of them in just 8 cadastres; the brief gives options for
+              health partners.</p>
+            <p class="project__tools">Google Earth Engine · ArcGIS Pro · Python · WorldPop · OpenStreetMap</p>
+            <div class="project__buttons">
+              <a class="button button--small" href="health-access/P2_brief.pdf" target="_blank" rel="noopener">Read the brief <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <a class="project__image" href="drought/P1_report.pdf" target="_blank" rel="noopener"><img src="assets/img/p1_drought.jpg" alt="Drought hot spot map of the Upper Litani basin" loading="lazy"></a>
+          <div class="project__data">
+            <p class="project__tag">Remote sensing · time series · spatial statistics</p>
+            <h3 class="project__title">Drought monitoring – Upper Litani basin</h3>
+            <p>25 years (2001–2025) of satellite drought indices (VCI, TCI, VHI), drought hot spots per
+              cadastre, and the shrinking Qaraoun reservoir: −61 % surface in autumn 2014 against 2019.</p>
+            <p class="project__tools">Google Earth Engine · MODIS · CHIRPS · ArcGIS Pro · Python</p>
+            <div class="project__buttons">
+              <a class="button button--small" href="drought/P1_report.pdf" target="_blank" rel="noopener">Read the report <i class="ri-arrow-right-up-line"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact section" id="contact">
+      <div class="container contact__container reveal">
+        <h2 class="section__title">Let's work together</h2>
+        <p class="contact__text">Looking for a GIS intern or junior analyst, or a mapping task done well? Write to me.</p>
+        <div class="contact__cards">
+          <a class="contact__card" href="mailto:3lytabikh@gmail.com"><i class="ri-mail-line"></i><span>Email</span><b>3lytabikh@gmail.com</b></a>
+          <a class="contact__card" href="https://github.com/3letabikh" target="_blank" rel="noopener"><i class="ri-github-line"></i><span>GitHub</span><b>3letabikh</b></a>
+          <a class="contact__card linkedin linkedin-link" href="#" target="_blank" rel="noopener" hidden><i class="ri-linkedin-line"></i><span>LinkedIn</span><b>Ali Tabikh</b></a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>Ali Tabikh · 2026</footer>
+  <footer class="footer">
+    <div class="container footer__container">
+      <span>© 2026 Ali Tabikh</span>
+      <a href="#home" class="footer__up" aria-label="Back to top"><i class="ri-arrow-up-line"></i></a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
